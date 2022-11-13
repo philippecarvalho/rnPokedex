@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/styles/theme';
 
 const Stack = createStackNavigator();
 
@@ -37,7 +39,9 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <MyStack />
+        <ThemeProvider theme={theme}>
+          <MyStack />
+        </ThemeProvider>
       </NavigationContainer>
     </ApolloProvider>
   );
