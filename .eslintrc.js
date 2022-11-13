@@ -7,9 +7,11 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'prettier/prettier': 'off',
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',
+        'object-curly-spacing': ['error', 'always'],
       },
     },
   ],
