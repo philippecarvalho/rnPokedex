@@ -1,26 +1,41 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaView, StatusBar, Text } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from 'styled-components/native';
 import theme from './src/styles/theme';
 import { LogoTitle } from './src/Components/LogoTitle';
 import { ArrowBack } from './src/Components/LogoTitle/ArrowBack';
+import { List } from './src/Components/List';
 
 const Stack = createStackNavigator();
 
 const client = new ApolloClient({
   uri: 'https://beta.pokeapi.co/graphql/v1beta',
-  cache: new InMemoryCache({ addTypename: false }),
+  cache: new InMemoryCache({
+    addTypename: false,
+    typePolicies: {
+      Query: {
+        fields: {
+          pokemon_v2_pokemon: {
+            keyArgs: false,
+            merge(existing = [], incoming) {
+              return [...existing, ...incoming];
+            },
+          },
+        },
+      },
+    },
+  }),
 });
 
 const Home = () => {
   return (
     <>
-      <SafeAreaView style={{ flex: 1 }}>
-        <Text>Pokedex</Text>
+      <SafeAreaView style={{ flex: 1, marginTop: 10 }}>
+        <List />
       </SafeAreaView>
     </>
   );
