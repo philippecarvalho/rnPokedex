@@ -11,6 +11,8 @@ declare module 'styled-components' {
       grass: string;
       fire: string;
       water: string;
+      defaultBg: string;
+      black: string;
     };
   }
 }
