@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_POKEMONS } from './queries';
 import { ListItem } from '../ListItem';
 import { Pokemon, PokemonData } from '../../types';
+import { Spinner } from '../Atoms/Spinner';
 
 export const List = () => {
   const { loading, error, data, fetchMore } = useQuery<PokemonData>(
@@ -23,8 +24,7 @@ export const List = () => {
 
   return (
     <View>
-      {/* TODO */}
-      {loading ? <Text>Loading...</Text> : null}
+      {loading ? <Spinner /> : null}
 
       {/* TODO */}
       {error ? <Text>Error!</Text> : null}
