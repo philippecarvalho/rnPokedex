@@ -13,6 +13,8 @@ declare module 'styled-components' {
       water: string;
       defaultBg: string;
       black: string;
+      red: string;
+      green: string;
     };
   }
 }
