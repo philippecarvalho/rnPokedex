@@ -6,28 +6,32 @@ interface props {
   item: Pokemon;
 }
 
+const padNumber = (number: number) => {
+  return String('000' + number).slice(-3);
+};
+
 export const ListItem: React.FC<props> = ({ item }) => {
-  const sprites = JSON.parse(item.pokemon_v2_pokemonsprites[0].sprites);
+  const sprites = JSON.parse(item.sprites[0].sprites);
 
   const imageURI = sprites.other['official-artwork'].front_default;
-  const mainType = item.pokemon_v2_pokemontypes[0].pokemon_v2_type.name;
+  const mainType = item.types[0].pokemonType.name;
 
   return (
     <S.Card type={mainType}>
       <S.Id>
-        <S.IdText>#{item.id}</S.IdText>
+        <S.IdText>#{padNumber(item.id)}</S.IdText>
       </S.Id>
 
       <S.ImageWrapper>
-        <S.Image style={{ transform: [{ scale: 1.3 }] }} source={{ uri: imageURI }} />
+        <S.Image style={{ transform: [{ scale: 1.2 }] }} source={{ uri: imageURI }} />
       </S.ImageWrapper>
 
       <S.Name type={mainType}>{item.name}</S.Name>
 
       <S.TypeWrapper>
-        {item.pokemon_v2_pokemontypes.map((type, index, array) => (
+        {item.types.map((type, index, array) => (
           <S.TypeBox isLastChild={index + 1 === array.length}>
-            <S.TypeText type={mainType}>{type.pokemon_v2_type.name}</S.TypeText>
+            <S.TypeText type={mainType}>{type.pokemonType.name}</S.TypeText>
           </S.TypeBox>
         ))}
       </S.TypeWrapper>

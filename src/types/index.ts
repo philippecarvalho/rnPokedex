@@ -1,22 +1,22 @@
-export interface Pokemon {
-  id: number;
-  name: string;
-  pokemon_v2_pokemontypes: PokemonTypeData[];
-  pokemon_v2_pokemonsprites: PokemonSpriteData[];
+export interface PokemonData {
+  pokemon: Pokemon[];
 }
 
-interface PokemonSpriteData {
+export interface Pokemon {
+  name: string;
+  id: number;
+  sprites: Sprite[];
+  types: Type[];
+}
+
+export interface Sprite {
   sprites: string;
 }
 
-interface PokemonTypeData {
-  pokemon_v2_type: PokemonType;
+export interface Type {
+  pokemonType: PokemonType;
 }
 
-interface PokemonType {
+export interface PokemonType {
   name: string;
-}
-
-export interface PokemonData {
-  pokemon_v2_pokemon: Pokemon[];
 }

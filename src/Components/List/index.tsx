@@ -33,11 +33,11 @@ export const List = () => {
         <>
           <FlatList
             keyExtractor={item => item.name}
-            data={data.pokemon_v2_pokemon}
+            data={data.pokemon}
             renderItem={renderItem}
             numColumns={2}
             onEndReached={() =>
-              fetchMore({ variables: { offset: data.pokemon_v2_pokemon.length } })
+              fetchMore({ variables: { offset: data.pokemon.length } })
             }
           />
         </>
