@@ -44,7 +44,7 @@ export const ListItem: React.FC<props> = ({ item }) => {
 
         <S.TypeWrapper>
           {item.types.map((type, index, array) => (
-            <S.TypeBox isLastChild={index + 1 === array.length}>
+            <S.TypeBox key={index} isLastChild={index + 1 === array.length}>
               <S.TypeText type={mainType}>{type.pokemonType.name}</S.TypeText>
             </S.TypeBox>
           ))}
