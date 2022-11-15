@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
@@ -9,6 +9,7 @@ import theme from './src/styles/theme';
 import { LogoTitle } from './src/Components/LogoTitle';
 import { ArrowBack } from './src/Components/LogoTitle/ArrowBack';
 import { List } from './src/Components/List';
+import { PokemonDetails } from './src/Components/PokemonDetails';
 
 const Stack = createStackNavigator();
 
@@ -62,14 +63,23 @@ function MyStack() {
         headerBackImage: () => <ArrowBack />,
       }}>
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="PokemonDetails" component={PokemonDetails} />
     </Stack.Navigator>
   );
 }
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#fff',
+  },
+};
+
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <ThemeProvider theme={theme}>
           <MyStack />
         </ThemeProvider>

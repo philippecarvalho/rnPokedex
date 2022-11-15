@@ -7,10 +7,24 @@ export const handleText = (text: string) => {
 };
 
 export const calculateStatsRate = (stat: Stat) => {
-  const max = stat.stat.details.values.max.value;
-  const min = stat.stat.details.values.min.value;
+  const max = 100;
+  const min = 0;
 
   const value = stat.value;
+
+  return ((value - min) * 100) / (max - min);
+};
+
+export const calculateTotalStats = (stats: Stat[]) => {
+  let max = 0;
+  let min = 0;
+  let value = 0;
+
+  stats.forEach(stat => {
+    max = max + stat.stat.details.values.avg.value;
+    min = min + stat.stat.details.values.min.value;
+    value = value + stat.value;
+  });
 
   return ((value - min) * 100) / (max - min);
 };

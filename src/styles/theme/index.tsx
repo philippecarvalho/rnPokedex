@@ -6,6 +6,8 @@ export default {
     yellow: '#FFCB05',
     white: '#FFFFFF',
     black: '#000000',
+    red: '#E63950',
+    green: '#45C0A3',
 
     grass: '#48D0B0',
     fire: '#FB6C6C',
