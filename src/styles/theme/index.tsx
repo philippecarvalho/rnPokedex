@@ -10,10 +10,19 @@ export default {
     green: '#45C0A3',
 
     grass: '#48D0B0',
+    grassSecondary: '#71E5C9',
+
     fire: '#FB6C6C',
+    fireSecondary: '#FEA1A1',
+
     water: '#77BDFE',
+    waterSecondary: '#A8D5FF',
+
     bug: '#48D0B0',
+    bugSecondary: '#71E5C9',
+
     electric: '#FFCB05',
+    electricSecondary: '#edce53',
 
     defaultBg: '#E9E9E9',
   },

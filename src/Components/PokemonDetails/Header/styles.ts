@@ -9,13 +9,22 @@ export const CardHeader = styled.View<{type: string}>`
     justify-content: space-around;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   `}
 `;
 
 export const HeaderImageWrapper = styled.View`
   align-items: center;
   width: 50%;
+`;
+
+export const HeaderImageBg = styled.View<{type: string}>`
+  ${({ theme, type }) => css`
+    border-radius: 100px;
+    background-color: ${theme.colors[`${type}Secondary`] ||
+    theme.colors.defaultBg};
+    padding: 10px;
+  `}
 `;
 
 export const HeaderInfoWrapper = styled.View`

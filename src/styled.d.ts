@@ -8,13 +8,20 @@ declare module 'styled-components' {
       midBlue: string;
       yellow: string;
       white: string;
-      grass: string;
-      fire: string;
-      water: string;
-      defaultBg: string;
-      black: string;
       red: string;
       green: string;
+      grass: string;
+      grassSecondary: string;
+      fire: string;
+      fireSecondary: string;
+      water: string;
+      waterSecondary: string;
+      bug: string;
+      bugSecondary: string;
+      electric: string;
+      electricSecondary: string;
+      defaultBg: string;
+      black: string;
     };
   }
 }

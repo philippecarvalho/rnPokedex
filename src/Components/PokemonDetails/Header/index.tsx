@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native';
 import React from 'react';
 import * as S from './styles';
 import usePokemonDetails from '../hooks/usePokemonDetails';
@@ -14,7 +13,9 @@ export const Header = ({ route }: {route: RouterProps}) => {
   return (
     <S.CardHeader type={mainType}>
       <S.HeaderImageWrapper>
-        <S.Image source={{ uri: imageURI }} />
+        <S.HeaderImageBg type={mainType}>
+          <S.Image source={{ uri: imageURI }} />
+        </S.HeaderImageBg>
       </S.HeaderImageWrapper>
 
       <S.HeaderInfoWrapper>
