@@ -23,3 +23,12 @@ export const InputWrapper = styled.View`
     align-self: center;
   `}
 `;
+
+export const ArrowCircle = styled.View`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.darkBlue};
+    border-radius: 100px;
+    padding: 5px;
+    margin-left: auto;
+  `}
+`;
