@@ -2,10 +2,7 @@ import React from 'react';
 import * as S from './styles';
 import usePokemonDetails from '../hooks/usePokemonDetails';
 import { RouterProps } from '../types';
-
-const padNumber = (number: number) => {
-  return String('000' + number).slice(-3);
-};
+import { padNumber } from '../../../utils';
 
 export const Header = ({ route }: {route: RouterProps}) => {
   const { mainType, imageURI, pokemonData } = usePokemonDetails({ route });
@@ -26,7 +23,7 @@ export const Header = ({ route }: {route: RouterProps}) => {
 
         <S.TypeWrapper>
           {pokemonData.types.map((type, index, array) => (
-            <S.TypeBox isLastChild={index + 1 === array.length}>
+            <S.TypeBox key={index} isLastChild={index + 1 === array.length}>
               <S.TypeText type={mainType}>{type.pokemonType.name}</S.TypeText>
             </S.TypeBox>
           ))}

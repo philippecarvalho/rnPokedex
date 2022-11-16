@@ -43,8 +43,11 @@ export const Id = styled.View`
 `;
 
 export const IdText = styled.Text`
-  text-align: center;
-  font-size: 12px;
+  ${({ theme }) => css`
+    text-align: center;
+    font-size: 12px;
+    color: ${theme.colors.darkBlue};
+  `}
 `;
 
 export const Image = styled.Image`

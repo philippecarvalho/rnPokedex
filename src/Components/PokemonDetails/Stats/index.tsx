@@ -4,6 +4,7 @@ import * as S from './styles';
 import {
   calculateGenderRate,
   calculateStatsRate,
+  calculateTotal,
   calculateTotalStats,
   handleText,
 } from '../utils';
@@ -12,19 +13,13 @@ import { MaleIcon } from './images/MaleIcon';
 import { FemaleIcon } from './images/FemaleIcon';
 
 export const Stats = ({ pokemon }: {pokemon: PokemonDetailsType}) => {
-  const calculateTotal = () => {
-    let total = 0;
-    pokemon.stats.forEach(stat => (total = total + stat.value));
-    return total;
-  };
-
   return (
     <S.StatsWrapper>
       <S.StatsTitles>
         <S.StatsText>Gender</S.StatsText>
 
-        {pokemon.stats.map(stat => (
-          <S.StatsTextWrapper>
+        {pokemon.stats.map((stat, index) => (
+          <S.StatsTextWrapper key={index}>
             <S.StatsText>{handleText(stat.stat.name)}</S.StatsText>
           </S.StatsTextWrapper>
         ))}
@@ -49,8 +44,8 @@ export const Stats = ({ pokemon }: {pokemon: PokemonDetailsType}) => {
           </S.GenderItem>
         </S.GenderRatesWrapper>
 
-        {pokemon.stats.map(stat => (
-          <S.StatsValueItem>
+        {pokemon.stats.map((stat, index) => (
+          <S.StatsValueItem key={index}>
             <S.StatsText style={{ marginRight: 5 }}>{stat.value}</S.StatsText>
             <View>
               <S.FillBar fillRate={calculateStatsRate(stat)} />
@@ -60,7 +55,9 @@ export const Stats = ({ pokemon }: {pokemon: PokemonDetailsType}) => {
         ))}
 
         <S.StatsValueItem>
-          <S.StatsText style={{ marginRight: 5 }}>{calculateTotal()}</S.StatsText>
+          <S.StatsText style={{ marginRight: 5 }}>
+            {calculateTotal(pokemon)}
+          </S.StatsText>
           <View>
             <S.FillBar fillRate={calculateTotalStats(pokemon.stats)} />
             <S.EmptyBar />

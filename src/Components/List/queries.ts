@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const GET_POKEMONS = gql`
-  query GetPokemons($offset: Int, $limit: Int) {
-    pokemon: pokemon_v2_pokemon(offset: $offset, limit: $limit) {
+  query GetPokemons {
+    pokemon: pokemon_v2_pokemon {
       name
       id
       sprites: pokemon_v2_pokemonsprites {

@@ -19,9 +19,7 @@ export const Characteristics: React.FC<props> = ({ pokemon, mainType }) => {
         <S.BubbleWrapper>
           <S.BubbleTitleText>Weight</S.BubbleTitleText>
           <S.Bubble type={mainType}>
-            <S.BubbleText type={mainType}>
-              {pokemon.weight * 0.1}kg
-            </S.BubbleText>
+            <S.BubbleText type={mainType}>{pokemon.weight / 10}kg</S.BubbleText>
           </S.Bubble>
         </S.BubbleWrapper>
 

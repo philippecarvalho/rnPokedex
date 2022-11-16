@@ -1,4 +1,4 @@
-import { Stat } from '../types';
+import { PokemonDetailsType, Stat } from '../types';
 
 export const handleText = (text: string) => {
   const newText = text.replace(/(\r\n|\n|\r|\f|-)/gm, ' ');
@@ -7,8 +7,8 @@ export const handleText = (text: string) => {
 };
 
 export const calculateStatsRate = (stat: Stat) => {
-  const max = 100;
-  const min = 0;
+  const max = stat.stat.details.values.max.value;
+  const min = stat.stat.details.values.min.value;
 
   const value = stat.value;
 
@@ -31,4 +31,10 @@ export const calculateTotalStats = (stats: Stat[]) => {
 
 export const calculateGenderRate = (genderRate: number) => {
   return ((genderRate * 1) / 8) * 100;
+};
+
+export const calculateTotal = (pokemon: PokemonDetailsType) => {
+  let total = 0;
+  pokemon.stats.forEach(stat => (total = total + stat.value));
+  return total;
 };

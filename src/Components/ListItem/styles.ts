@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components/native';
 export const Card = styled.View<{type: string}>`
   ${({ theme, type }) => css`
     width: 140px;
-    height: 189px;
     background-color: ${theme.colors[type] || theme.colors.defaultBg};
     margin-bottom: 10px;
     border-radius: 15px;
     align-items: center;
+    padding: 0 10px 10px 10px;
   `}
 `;
 
@@ -23,8 +23,11 @@ export const Id = styled.View`
 `;
 
 export const IdText = styled.Text`
-  text-align: center;
-  font-size: 12px;
+  ${({ theme }) => css`
+    text-align: center;
+    font-size: 12px;
+    color: ${theme.colors.darkBlue};
+  `}
 `;
 
 export const Image = styled.Image`
@@ -36,6 +39,7 @@ export const ImageWrapper = styled.View`
   border-radius: 100px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 5px;
+  margin-bottom: 5px;
 `;
 
 export const Name = styled.Text<{type: string}>`

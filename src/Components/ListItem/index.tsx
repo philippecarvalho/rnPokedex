@@ -3,14 +3,11 @@ import * as S from './styles';
 import { Pokemon } from '../../types';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { padNumber } from '../../utils';
 
 interface props {
   item: Pokemon;
 }
-
-const padNumber = (number: number) => {
-  return String('000' + number).slice(-3);
-};
 
 export const ListItem: React.FC<props> = ({ item }) => {
   const sprites = JSON.parse(item.sprites[0].sprites);
@@ -40,7 +37,9 @@ export const ListItem: React.FC<props> = ({ item }) => {
           />
         </S.ImageWrapper>
 
-        <S.Name type={mainType}>{item.name}</S.Name>
+        <S.Name numberOfLines={1} type={mainType}>
+          {item.name}
+        </S.Name>
 
         <S.TypeWrapper>
           {item.types.map((type, index, array) => (
