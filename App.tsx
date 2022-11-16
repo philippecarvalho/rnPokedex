@@ -61,6 +61,7 @@ function MyStack() {
         headerTintColor: theme.colors.white,
         headerBackTitleVisible: false,
         headerBackImage: () => <ArrowBack />,
+        headerTitleAlign: 'center',
       }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="PokemonDetails" component={PokemonDetails} />
