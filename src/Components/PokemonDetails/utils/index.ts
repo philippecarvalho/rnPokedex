@@ -26,7 +26,12 @@ export const calculateTotalStats = (stats: Stat[]) => {
     value = value + stat.value;
   });
 
-  return ((value - min) * 100) / (max - min);
+  const result = ((value - min) * 100) / (max - min);
+  if (result > 100) {
+    return 100;
+  }
+
+  return result;
 };
 
 export const calculateGenderRate = (genderRate: number) => {
