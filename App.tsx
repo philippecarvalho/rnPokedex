@@ -7,7 +7,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from 'styled-components/native';
 import theme from './src/styles/theme';
 import { LogoTitle } from './src/Components/LogoTitle';
-import { ArrowBack } from './src/Components/LogoTitle/ArrowBack';
+import { ArrowBack } from './src/Components/Atoms/ArrowBack';
 import { List } from './src/Components/List';
 import { PokemonDetails } from './src/Components/PokemonDetails';
 
